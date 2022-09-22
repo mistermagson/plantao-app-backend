@@ -17,4 +17,4 @@ class App {
     }
 }
 
-module.exports = new App().server();
+module.exports = new App().server;
