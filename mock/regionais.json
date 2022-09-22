@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "regional": 1,
+    "subsecoes":[
+      {"subsecao": 1,
+      "descricao": "Campo Grande"},
+      {"subsecao": 2,
+        "descricao": "Dourados"},
+      {"subsecao": 3,
+        "descricao": "Três Lagoas"},
+      {"subsecao": 4,
+        "descricao": "Corumbá"}
+    ]
+  },
+  {
+    "id": 2,
+    "regional": 2,
+    "subsecoes":[
+      {"subsecao": 5,
+        "descricao": "Ponta Porã"},
+      {"subsecao": 6,
+        "descricao": "Naviraí"},
+      {"subsecao": 7,
+        "descricao": "Coxim"}
+      
+    ]
+  }
+]
