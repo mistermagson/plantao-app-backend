@@ -1,7 +1,7 @@
-const {Router}  = require("express");
-const routes = new Router();
+import { Router } from "express";
+import juizes from "./app/controllers/JuizesController";
 
-const juizes = require("./app/controllers/JuizesController");
+const routes = new Router();
 
 routes.get("/juizes", juizes.index);
 routes.get("/juizes/:id", juizes.show);
@@ -9,4 +9,4 @@ routes.post("/juizes", juizes.create);
 routes.put("/juizes/:id", juizes.update);
 routes.get("/juizes/:id", juizes.destroy);
 
-module.exports = routes;
+export default routes;
