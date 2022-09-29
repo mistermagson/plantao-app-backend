@@ -1,4 +1,4 @@
-import Sequelize, {Model} from "sequelize";
+import {Sequelize, Model} from "sequelize";
 
 class Subsecao extends Model {
     static init(sequelize){
@@ -6,8 +6,7 @@ class Subsecao extends Model {
             {
                 subsecao: Sequelize.INTEGER,
                 descricao: Sequelize.STRING,
-                uf: Sequelize.STRING
-
+                uf: Sequelize.ENUM
             },
             {
                 sequelize,

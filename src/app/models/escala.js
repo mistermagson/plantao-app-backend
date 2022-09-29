@@ -1,4 +1,4 @@
-import Sequelize, {Model} from "sequelize";
+import {Sequelize, Model} from "sequelize";
 
 class Escala extends Model {
     static init(sequelize) {

@@ -1,28 +1,21 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('escalas', {
+    await queryInterface.createTable('regionais', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      dataInicial: {
-        type: Sequelize.DATE
+      codigo: {
+        type: Sequelize.INTEGER
       },
-      dataFinal: {
-        type: Sequelize.DATE
-      },
-      tipo: {
+      descricao: {
         type: Sequelize.STRING
       },
-      status: {
-        type: Sequelize.ENUM,
-        values: ['aberta', 'em fechamento', 'fechada']
-      },
-      plantonistas: {
-        type: Sequelize.JSON // { dataPlantao: DATE, plantonista: <JUIZ> }
+      uf: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +28,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('escalas');
+    await queryInterface.dropTable('regionais');
   }
 };

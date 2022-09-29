@@ -18,8 +18,8 @@ module.exports = {
         allowNull: false
       },
       uf: {
-        type: Sequelize.STRING,
-        allowNull:false,
+        type: Sequelize.ENUM,
+        values: ['MS', 'SP']
       },
       created_at:{
         type: Sequelize.DATE,

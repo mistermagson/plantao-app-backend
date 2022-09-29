@@ -5,7 +5,7 @@ module.exports = {
     password: 'cpd',
     define: {
         timestamp: true,
-        underscored: true,
+        underscored: false,
         underscoredAll: true
     }
 }

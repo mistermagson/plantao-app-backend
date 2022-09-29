@@ -1,21 +1,24 @@
 import Sequelize, {Model} from "sequelize";
 
 class Juiz extends Model {
-    static init(sequelize){
-        super.init(
-            {
+    static init(sequelize) {
+        super.init({
                 nome: Sequelize.STRING,
                 dataAntiguidade: Sequelize.DATEONLY,
-                email: Sequelize.STRING
+                email: Sequelize.STRING,
+                status: Sequelize.ENUM('ATIVO', 'INATIVO')
+
             },
-        {
-            sequelize,
-        });
+            {
+                sequelize,
+                modelName: 'Juiz',
+                tableName: 'juizes'
+            });
     }
 
     static associate(models) {
-        this.belongsTo(models.Regional,{foreignKey: "regional_id"});
-
+        // define association here
     }
 }
+
 export default Juiz;
