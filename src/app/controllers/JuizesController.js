@@ -1,15 +1,5 @@
 import Juiz from "../models/juiz";
 
-
-/*const juizes = [
-  { id: 1, nome: "Dr. ANice", dataAntiguidade: "2020-01-01" },
-  { id: 2, nome: "Dr. BNice", dataAntiguidade: "2019-01-01" },
-  { id: 3, nome: "Dr. CNice", dataAntiguidade: "2018-01-01" },
-  { id: 4, nome: "Dr. DNice", dataAntiguidade: "2017-01-01" },
-  { id: 5, nome: "Dr. ENice", dataAntiguidade: "2016-01-01" },
-  { id: 6, nome: "Dr. FNice", dataAntiguidade: "2021-01-01" },
-];*/
-
 class JuizesController {
 
   async index(req, res) {
@@ -25,14 +15,20 @@ class JuizesController {
     }
   }
 
-  show(req, res) {
-    const { id } = req.params;
-    const juiz = juizes.find((item) => item.id === id);
-    const status = juiz ? 200 : 404;
+  async show(req, res) {
+   try{
+     const { id } = req.params;
 
-    console.log("GET :: /juizes/:id", juiz);
+     //const juiz = juizes.find((item) => item.id === id);
+     const juiz = await Juiz.findByPk(id);
+     const status = juiz ? 200 : 404;
 
-    return res.status(status).json(juiz);
+     return res.status(status).json(juiz);
+   }
+    catch (error){
+      return res.status(500).json(error.message);
+    }
+
   }
 
   create(req, res) {
