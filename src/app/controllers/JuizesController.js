@@ -31,41 +31,45 @@ class JuizesController {
 
   }
 
-  create(req, res) {
-    const { nome, dataAntiguidade } = req.body;
-    const id = juizes.length + 1;
-    const juiz = { id, nome, dataAntiguidade };
+  async create(req, res) {
+    const { nome, dataAntiguidade, email , status} = req.body;
 
-    juizes.push(juiz);
-
-    return res.status(201).json(juiz);
+    try{
+      const juiz = await Juiz.create({ nome, dataAntiguidade, email , status});
+     // await juiz.save();
+      return res.status(201).json(juiz);
+    }
+    catch(error){
+      return res.status(500).json(error.message);
+    }
   }
 
-  update(req, res) {
-    const { id } = req.params;
-    const { nome, dataAntiguidade } = req.body;
+  async update(req, res) {
 
-    const index = juizes.findIndex((item) => item.id === id);
-    const status = index >= 0 ? 200 : 404;
+    const { id, nome, dataAntiguidade, email , status} = req.body;
 
-    if (index >= 0) {
-      juizes[index] = { id, nome, dataAntiguidade };
+    try{
+      const juiz = await Juiz.findByPk(id);
+      await juiz.update({nome, dataAntiguidade, email , status});
+      res.json(juiz);
     }
-
-    res.status(status).json(juizes[index]);
+    catch(error){
+      return res.status(500).json(error.message);
+    }
   }
 
-  destroy(req, res) {
+  async destroy(req, res) {
     const { id } = req.params;
 
-    const index = juizes.findIndex((item) => item.id === id);
-    const status = index >= 0 ? 200 : 404;
-
-    if (index >= 0) {
-      juizes.splice(index, 1);
+    try{
+      const juiz = await Juiz.findByPk(id);
+      await juiz.destroy();
+      res.status(204).json();
+    }
+    catch(error){
+      return res.status(500).json(error.message);
     }
 
-    res.status(status).json();
   }
 }
 

@@ -6,7 +6,7 @@ const routes = new Router();
 routes.get("/juizes", juizes.index);
 routes.get("/juizes/:id", juizes.show);
 routes.post("/juizes", juizes.create);
-routes.put("/juizes/:id", juizes.update);
-routes.get("/juizes/:id", juizes.destroy);
+routes.put("/juizes", juizes.update);
+routes.delete("/juizes/:id", juizes.destroy);
 
 export default routes;
