@@ -1,20 +1,23 @@
 import Sequelize, {Model} from "sequelize";
+import Juiz from "./juiz";
 
-  class Regional extends Model {
-      static init(sequelize){
-        Regional.init({
-          codigo: DataTypes.INTEGER,
-          descricao: DataTypes.STRING,
-          uf: DataTypes.STRING
+class Regional extends Model {
+    static init(sequelize) {
+        super.init({
+            codigo: Sequelize.INTEGER,
+            descricao: Sequelize.STRING,
+            uf: Sequelize.STRING
         }, {
-          sequelize,
-          modelName: 'Regional',
-          tableName: 'regionais'
+            sequelize,
+            modelName: 'Regional',
+            tableName: 'regionais'
         });
+
     }
     static associate(models) {
-      // define association here
+        this.belongsToMany(models.Juiz, {through: 'RegionalJuiz' })
     }
-  }
+
+}
 
 export default Regional;

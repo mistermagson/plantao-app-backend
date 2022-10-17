@@ -14,7 +14,7 @@ class Escala extends Model {
     }
 
     static associate(models) {
-        this.hasMany(models.Plantonista);
+
     }
 }
 

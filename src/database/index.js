@@ -3,8 +3,9 @@ import Sequelize from "sequelize";
 import config from "../config/database";
 
 import Juiz from "../app/models/juiz";
+import Regional from "../app/models/regional";
 
-const models = [Juiz];
+const models = [Juiz, Regional];
 
 class Database {
     constructor(){

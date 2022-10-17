@@ -16,5 +16,7 @@ routes.post("/regionais", regionais.create);
 routes.put("/regionais", regionais.update);
 routes.delete("/regionais/:id", regionais.destroy);
 
+//routes.get("/regionais/:id/juizes", regionais.index);
+routes.post("/regionais/juizes", regionais.addJuizes);
 
 export default routes;

@@ -1,6 +1,8 @@
 import Sequelize, {Model} from "sequelize";
 
+
 class Juiz extends Model {
+
     static init(sequelize) {
         super.init({
                 nome: Sequelize.STRING,
@@ -14,10 +16,10 @@ class Juiz extends Model {
                 modelName: 'Juiz',
                 tableName: 'juizes'
             });
+        //this.belongsToMany('Regional', {through: 'Regional_Juiz' })
     }
-
     static associate(models) {
-        // define association here
+        this.belongsToMany(models.Regional, {through: 'RegionalJuiz' })
     }
 }
 

@@ -1,10 +1,15 @@
+import Sequelize, {Model} from "sequelize";
 import Regional from "../models/regional";
+import Juiz from "../models/juiz";
+
 
 class RegionaisController {
 
   async index(req, res) {
     try{
-      const data = await Regional.findAll();
+      const data = await Regional.findAll({
+        limit:  100,
+      });
       return res.json(data);
     }
     catch (error) {
@@ -15,8 +20,6 @@ class RegionaisController {
   async show(req, res) {
    try{
      const { id } = req.params;
-
-     //const regional = regionales.find((item) => item.id === id);
      const regional = await Regional.findByPk(id);
      const status = regional ? 200 : 404;
 
@@ -68,6 +71,26 @@ class RegionaisController {
     }
 
   }
+
+  async addJuizes(req, res) {
+    const { regionalId, juizId} = req.body;
+    //const RegionalJuiz = sequelize.define('RegionalJuiz', {}, { timestamps: false });
+
+    try{
+      const regional = await Regional.findByPk(regionalId);
+      const juiz = await Juiz.findByPk(juizId);
+
+      //await regional.addJuiz(juiz, {through: 'RegionalJuiz'})
+
+      console.log(juiz, regional)
+      return res.status(201);
+    }
+    catch(error){
+      return res.status(500).json(error.message);
+    }
+  }
+
+
 }
 
-export default new RegionalController();
+export default new RegionaisController();
