@@ -1,29 +1,31 @@
 {
-  "name": "plantao-app-backend",
-  "version": "1.0.0",
-  "description": "Backend Plantao-APP",
-  "main": "index.js",
+  "name": "plantao-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "PLANTAO JUIZES BACKEND",
   "scripts": {
-    "dev": "nodemon ./src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
   },
-  "keywords": [],
-  "author": "Magson",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.24.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.7.1",
-    "sequelize-cli": "^6.4.1",
-    "sucrase": "^3.27.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "express": "^4.18.1",
-    "sequelize": "^6.23.1",
-    "sqlite3": "^5.1.1"
-  }
+    "@strapi/plugin-i18n": "4.15.4",
+    "@strapi/plugin-users-permissions": "4.15.4",
+    "@strapi/strapi": "4.15.4",
+    "better-sqlite3": "8.0.1",
+    "mysql2": "^3.6.5"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "4eda7721-3397-4644-be35-9f5f58fa1e10"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
 }
