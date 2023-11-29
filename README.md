@@ -23,3 +23,6 @@ Arquivos do backend do projeto
 ``` criar arquivo .env ```
 
 ``` pm2 start yarn --name "backend-plantao" -- run start ```
+
+### Gerar token linha de comando NODE
+ ``` node -e "console.log(crypto.randomBytes(48).toString('hex'))"```
