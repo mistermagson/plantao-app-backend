@@ -65,6 +65,9 @@
     },
     "link": {
       "type": "string"
+    },
+    "plantoesPorJuiz": {
+      "type": "integer"
     }
   }
 }
